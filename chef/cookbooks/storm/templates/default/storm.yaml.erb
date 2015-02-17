@@ -1,0 +1,10 @@
+<% 
+  zk_url_list = []
+  @zookeeper_server_list.each do |zk_server|
+    zk_url_list << "#{zk_server}"
+  end
+%>
+<%= "storm.zookeeper.servers:\n - " + zk_url_list.join("\n - ") %>
+
+<%= 'nimbus.host: "' + "#{node.default[:storm][:nimbus][:ipaddr]}" + '"' %>
+<%= 'storm.local.dir: "' + "#{node.default[:storm][:workdir]}" + '"' %>

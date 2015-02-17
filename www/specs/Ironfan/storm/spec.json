@@ -1,0 +1,54 @@
+{
+  "nodeGroups":[
+    {
+      "name": "Zookeeper",
+      "roles": [
+        "zookeeper"
+      ],
+      "groupType": "zookeeper",
+      "instanceNum": "[3,3,3]",
+      "instanceType": "[SMALL]",
+      "cpuNum": "[1,1,64]",
+      "memCapacityMB": "[7500,3748,min]",
+      "storage": {
+        "type": "[SHARED,LOCAL]",
+        "sizeGB": "[2,2,min]"
+      },
+      "haFlag": "on"
+    },
+    {
+      "name": "Nimbus",
+      "description": "The Storm master node",
+      "roles": [
+        "storm_nimbus"
+      ],
+      "groupType": "master",
+      "instanceNum": "[1,1,1]",
+      "instanceType": "[MEDIUM,SMALL,LARGE,EXTRA_LARGE]",
+      "cpuNum": "[1,1,64]",
+      "memCapacityMB": "[7500,3748,max]",
+      "storage": {
+        "type": "[SHARED,LOCAL]",
+        "sizeGB": "[1,1,min]"
+      },
+      "haFlag": "on"
+    },
+    {
+      "name": "Supervisor",
+      "description": "The Storm supervisor node",
+      "roles": [
+        "storm_supervisor"
+      ],
+      "instanceType": "[MEDIUM,SMALL,LARGE,EXTRA_LARGE]",
+      "groupType": "worker",
+      "instanceNum": "[3,1,max]",
+      "cpuNum": "[1,1,64]",
+      "memCapacityMB": "[7500,3748,max]",	
+      "storage": {
+        "type": "[SHARED,LOCAL]",
+        "sizeGB": "[1,1,min]"
+      },
+      "haFlag": "off"
+    }
+  ]
+}

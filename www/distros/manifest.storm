@@ -1,0 +1,19 @@
+[
+  {
+    "name": "storm",
+    "vendor": "APACHE",
+    "version": "0.9.3",
+    "packages": [
+      {
+        "roles": [
+          "zookeeper",
+	  "storm_nimbus",
+	  "storm_supervisor"
+        ],
+        "package_repos": [
+          "https://localhost/yum/bigtop.repo"
+        ]
+      }
+    ]
+  }
+]
